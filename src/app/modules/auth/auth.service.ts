@@ -63,7 +63,7 @@ const refreshToken = async (token: string): Promise<IRefreshTokenResponse> => {
   }
 
   const { userId } = verifiedToken;
-  console.log(verifiedToken);
+  
   // tumi delete hye gso  kintu tumar refresh token ase
   // checking deleted user's refresh token
 
@@ -93,9 +93,7 @@ const changePassword = async (
 ): Promise<void> => {
   const { oldPassword, newPassword } = payload;
 
-  // // checking is user exist
-  // const isUserExist = await User.isUserExist(user?.userId);
-
+ 
   //alternative way
   const isUserExist = await User.findOne({ id: user?.userId }).select(
     '+password'
